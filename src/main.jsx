@@ -14,6 +14,7 @@ import Register from './components/Register/Register.jsx';
 import Blogs from './components/Blogs/Blogs.jsx';
 import Home from './components/Home/Home.jsx';
 import AuthProvider from './components/Provider/AuthProvider.jsx';
+import ViewRecipe from './components/ViewRecipe/ViewRecipe.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
       {
         path : "/blogs",
         element : <Blogs></Blogs>
+      },
+      {
+        path : "/foods/:id",
+        element : <ViewRecipe></ViewRecipe>,
+        loader : ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
       }
       
     ]
