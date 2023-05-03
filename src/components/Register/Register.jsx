@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
@@ -10,6 +12,7 @@ const Register = () => {
    
   const handleRegister = event =>{
     event.preventDefault();
+    setError('');
 
     const form = event.target;
     const name = form.name.value;
@@ -26,9 +29,14 @@ const Register = () => {
       setError('password must be 6 character')
       return
     }
+    else if(!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)){
+      setError("Lorem ipsum dolor")
+     
+
+      return
+    }
 
     
-
     createUser(email, password)
     .then(result =>{
       const loggedUser = result.user;
