@@ -1,9 +1,33 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
 
 
 const Login = () => {
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
+
+  const from = location.state?.from?.pathname || '/';
+
+  const auth = getAuth(app)
+  console.log(app)
+  const provider = new GoogleAuthProvider()
+
+  const handleGoogleSignIn = () =>{
+    signInWithPopup(auth, provider )
+    .then(result =>{
+      const user = result.user;
+      console.log(user)
+    })
+    .catch(error =>{
+      console.log('error', error.message)
+    })
+  }
+
 
   const {signIn} = useContext(AuthContext)
 
@@ -21,6 +45,8 @@ const Login = () => {
         .then(result =>{
           const loggedUser = result.user;
           console.log(loggedUser)
+          form.reset()
+          navigate(from, {replace : true})
         })
         .catch(error =>{
           console.log(error)
@@ -64,6 +90,11 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
         <Link to='/register'> <p className='text-blue-600'>Register</p> </Link>
+        <div className='item-center'>
+        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">login with Google</button> <br /> <br />
+        <button className="btn btn-outline btn-success">
+          login with github</button>
+        </div>
       </form>
     </div>
   </div>

@@ -16,7 +16,7 @@ const Card = (props) => {
        <p>Likes :{likes}</p>
       </div>
       <div className="card-actions justify-center">
-      <Link to ={`/foods/${id}`}><button className='btn btn-primary px-12' > View Recipe</button></Link> 
+      <Link to ={`/foods/${id}`}><button className='btn btn-outline btn-primary px-12' > View Recipe</button></Link> 
       </div>
       </div>
        </div> </div> 

@@ -18,8 +18,8 @@ const ViewRecipe = () => {
 
     return (
         <div>
-           <div className='border my-container flex px-5 py-6 justify-between rounded-md items-center'>
-            <div className='inline-flex items-center gap-10'>
+           <div className='border my-container  px-5 py-6 justify-between rounded-md items-center'>
+            <div className='lg:inline-flex items-center gap-10'>
                 <div>
                     <img className='border bg-slate-50' src={chef.picture} alt="image" />
                 </div>
@@ -32,23 +32,23 @@ const ViewRecipe = () => {
                 </div>
             </div>
         </div>
-        <div className="card my-container my-16  bg-base-100 shadow-xl">
+        <div className=" my-container my-16  ">
        
-      <div className='grid lg:grid-cols-3 gap-4'> <div className="card-body">
+      <div className='grid lg:grid-cols-3 gap-4'> <div className="card-body card bg-base-100 shadow-xl">
           <h2 className="card-title">{chef.recipes[0].recipe_name}</h2>
           <hr />
           <h2>Ingredients : {chef.recipes[0].ingredients}</h2>
           <h2>Cooking Method : {chef.recipes[0].cooking_method}</h2>
           <h2>Rating : {chef.recipes[0].rating}</h2>
       </div>
-       <div className="card-body bg-teal-400 rounded">
+      <div className='card '> <div className="card-body bg-base-100 shadow-xl">
           <h2 className="card-title">{chef.recipes[1].recipe_name}</h2>
           <hr />
           <h2>Ingredients : {chef.recipes[1].ingredients}</h2>
           <h2>Cooking Method : {chef.recipes[1].cooking_method}</h2>
           <h2>Rating : {chef.recipes[1].rating}</h2>
-      </div>
-       <div className="card-body bg-orange-400 text-white">
+      </div></div>
+       <div className="card-body bg-blue-400 shadow-xl">
           <h2 className="card-title">{chef.recipes[2].recipe_name}</h2>
           <hr />
           <h2>Ingredients : {chef.recipes[2].ingredients}</h2>

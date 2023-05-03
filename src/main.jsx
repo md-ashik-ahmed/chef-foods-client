@@ -15,6 +15,7 @@ import Blogs from './components/Blogs/Blogs.jsx';
 import Home from './components/Home/Home.jsx';
 import AuthProvider from './components/Provider/AuthProvider.jsx';
 import ViewRecipe from './components/ViewRecipe/ViewRecipe.jsx';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,8 +42,8 @@ const router = createBrowserRouter([
       },
       {
         path : "/foods/:id",
-        element : <ViewRecipe></ViewRecipe>,
-        loader : ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        element : <PrivateRoute><ViewRecipe></ViewRecipe></PrivateRoute>,
+        loader : ({params}) => fetch(`https://chef-foods-server-md-ashik-ahmed.vercel.app/foods/${params.id}`)
       }
       
     ]

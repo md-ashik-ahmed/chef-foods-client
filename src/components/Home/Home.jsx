@@ -20,7 +20,7 @@ const Home = () => {
 
     return (
 
-        <div ><Banner></Banner>
+        <div><Banner></Banner>
           <div className='my-container'>
        <div className='grid lg:grid-cols-3 gap-4'>
          {foods.map((foods) =>(
