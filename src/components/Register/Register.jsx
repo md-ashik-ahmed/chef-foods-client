@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Register = () => {
 
   const [error, setError] = useState('');
-
+  const navigate = useNavigate()
   const {user, createUser} = useContext(AuthContext)
    
   const handleRegister = event =>{
@@ -34,6 +34,7 @@ const Register = () => {
       const loggedUser = result.user;
       console.log(loggedUser)
       form.reset();
+      navigate('/login')
     })
     .catch(error =>{
       console.log(error)

@@ -46,7 +46,7 @@ const Login = () => {
           const loggedUser = result.user;
           console.log(loggedUser)
           form.reset()
-          navigate(from, {replace : true})
+          navigate(from, {replace : true});
         })
         .catch(error =>{
           console.log(error)

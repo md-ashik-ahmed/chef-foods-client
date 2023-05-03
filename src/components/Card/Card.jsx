@@ -6,7 +6,7 @@ const Card = (props) => {
     const {id,picture, name, experience,recipes_count, likes} = props.foods
 
     return (
-        <div>  <div className="card w-96 bg-base-100 shadow-xl">
+        <div>  <div className="card w-full h-full bg-base-100 shadow-xl">
        <figure><img src={picture} alt="image" /></figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
