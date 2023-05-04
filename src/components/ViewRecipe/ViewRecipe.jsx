@@ -24,11 +24,11 @@ const ViewRecipe = () => {
                     <img className='border bg-slate-50' src={chef.picture} alt="image" />
                 </div>
                 <div>
-                    <h1 className='text-2xl font-medium py-2'>Name : {chef.name}</h1>
+                    <h1 className='text-2xl font-medium py-2'>{chef.name}</h1>
                     <h1 className='text-xl font-semibold pb-2'>Experience : {chef.experience} Years</h1>
-                   <h2>Recipes : {chef.recipes_count}</h2>
-                   <h2>Like : {chef.likes}</h2>
-                   <h2>Description : {chef.bio}</h2>
+                   <div className='flex pb-4'><h2 className=' font-semibold'>Recipes : {chef.recipes_count}</h2>
+                   <h1 className='ml-12 font-semibold'>Like : {chef.likes}</h1></div>
+                   <h1 className=' text-2xl'>{chef.bio}</h1>
                 </div>
             </div>
         </div>
