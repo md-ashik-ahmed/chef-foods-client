@@ -7,7 +7,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 const ViewRecipe = () => {
 
 
-    const {id} = useParams();
+    // const {id} = useParams();
 
     const chef = useLoaderData()
 
@@ -25,10 +25,10 @@ const ViewRecipe = () => {
         <div className='bg-sky-100'>
            <div className='border my-container gap-3 bg-sky-200 px-5 py-6 justify-between rounded-md items-center'>
             <div className='lg:inline-flex items-center gap-10'>
-                <div className='w-1/2'>
+                <div className='w-1/2 transition duration-200 transform hover:-translate-y-2'>
                     <img className='border bg-slate-50' src={chef.picture} alt="image" />
                 </div>
-                <div className='w-1/2'>
+                <div className='w-1/2 transition duration-200 transform hover:-translate-y-2'>
                     <h1 className='text-3xl font-semibold py-2'>{chef.name}</h1>
                     <h1 className='text-xl  pb-2'>Experience : {chef.experience} Years</h1>
                    <div className='flex pb-4'><h2 className='text-xl'>Recipes : {chef.recipes_count}</h2>

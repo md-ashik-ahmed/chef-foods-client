@@ -8,6 +8,7 @@ const Register = () => {
 
   const [error, setError] = useState('');
   const [accepted, setAccepted] = useState(false);
+ 
 
   const navigate = useNavigate()
   const {user, createUser} = useContext(AuthContext)
@@ -33,6 +34,7 @@ const Register = () => {
     }
     else if(!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)){
       setError("Lorem ipsum dolor")
+      
      
 
       return
@@ -54,6 +56,10 @@ const Register = () => {
 
 const handleAccepted = event =>{
   setAccepted(event.target.checked)
+}
+
+const handleSucess = () =>{
+  toast('Account Created Succesfully')
 }
 
 
@@ -97,11 +103,13 @@ const handleAccepted = event =>{
      </label>
        </div>
         <div className="form-control mt-6">
-          <button disabled={!accepted} className="btn btn-primary">Create New account</button>
+          <button onClick={handleSucess} disabled={!accepted} className="btn btn-primary">Create New account</button>
+          <ToastContainer/>
         </div>
         <div className='inline-flex'><p>Already have an account?</p>
         <Link to='/login'> <p className='text-blue-600'>Login here</p> </Link></div>
         <p className='text-red-600'>{error}</p>
+        
       </form>
     </div>
   </div>
