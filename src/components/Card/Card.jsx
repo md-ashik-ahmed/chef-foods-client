@@ -8,7 +8,7 @@ const Card = (props) => {
 
     return (
         <div>  
-        <div className="card w-full h-full bg-base-100 shadow-lg transition duration-200 transform hover:-translate-y-2">
+        <div className="card w-full h-full bg-sky-200 shadow-lg transition duration-200 transform hover:-translate-y-2">
         <div className='overflow-hidden relative  rounded shadow-lg hover:shadow-2xl'>
         <figure ><img className='h-96 w-96' src={picture} alt="image"/>
          </figure></div>

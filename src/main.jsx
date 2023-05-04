@@ -14,6 +14,7 @@ import Home from './components/Home/Home.jsx';
 import AuthProvider from './components/Provider/AuthProvider.jsx';
 import ViewRecipe from './components/ViewRecipe/ViewRecipe.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
+import PDFfile from './components/PDFfile/PDFfile';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path : "/blogs",
-        element : <Blogs></Blogs>
+        element : <PDFfile></PDFfile>
       },
       {
         path : "/foods/:id",
