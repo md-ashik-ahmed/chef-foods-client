@@ -11,7 +11,7 @@ const PrivateRoute = ({children}) => {
     console.log(location)
 
     if(loading){
-        return <h2>loading...</h2>
+        return <button className="btn btn-outline p-20 loading"></button>
     }
 
     if(user){

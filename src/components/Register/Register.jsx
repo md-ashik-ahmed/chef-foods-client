@@ -7,6 +7,8 @@ import { AuthContext } from '../Provider/AuthProvider';
 const Register = () => {
 
   const [error, setError] = useState('');
+  const [accepted, setAccepted] = useState(false);
+
   const navigate = useNavigate()
   const {user, createUser} = useContext(AuthContext)
    
@@ -42,12 +44,16 @@ const Register = () => {
       const loggedUser = result.user;
       console.log(loggedUser)
       form.reset();
-      navigate('/login')
+      navigate('/')
     })
     .catch(error =>{
       console.log(error)
     })
 
+}
+
+const handleAccepted = event =>{
+  setAccepted(event.target.checked)
 }
 
 
@@ -82,19 +88,16 @@ const Register = () => {
             <span className="label-text">Confirm Password</span>
           </label>
           <input type="password" name="confirm" placeholder="Confirm Password" className="input input-bordered" required/>
-          <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-          </label>
         </div>
         <div className="form-control">
       <label className="label cursor-pointer">
-      <input type="checkbox" className="checkbox" />
+      <input onClick={handleAccepted} type="checkbox"  className="checkbox" />
        <span className="label-text">I accept <span className='text-blue-700'>Terms and Conditions</span> </span> 
       
      </label>
        </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Create an account</button>
+          <button disabled={!accepted} className="btn btn-primary">Create New account</button>
         </div>
         <div className='inline-flex'><p>Already have an account?</p>
         <Link to='/login'> <p className='text-blue-600'>Login here</p> </Link></div>

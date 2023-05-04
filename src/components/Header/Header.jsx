@@ -50,14 +50,7 @@ const Header = () => {
               </NavLink>
             </li>
            
-            <li>
-              <NavLink
-                to='/login'
-                className={({ isActive }) => (isActive ? 'active' : 'default')}
-              >
-                Login
-              </NavLink>
-            </li>
+            
           </ul>
         
           {
@@ -65,7 +58,7 @@ const Header = () => {
               <span>{user.email}</span>
               <button onClick={handlelogOut}  className='btn btn-primary btn-outline'>
               Sign Out
-              </button></> : <Link to="/login"></Link>
+              </button></> : <button className='btn btn-primary btn-outline'><Link to="/login">Login</Link></button>
               
             }
             
@@ -87,7 +80,7 @@ const Header = () => {
                     <div>
                       <Link to='/' className='inline-flex items-center'>
                         <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
-                        Hustle 
+                        Tasty Food
                         </span>
                       </Link>
                     </div>

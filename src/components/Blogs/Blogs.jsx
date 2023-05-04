@@ -11,13 +11,17 @@ const Blogs = () => {
                 </h3> <br /> <br />
 
                 <h1 className='font-sans text-2xl font-semibold'>2. How to validate React props using PropTypes?</h1> <br />
-                <h3 className='text-xl'><span className='font-semibold'>Answer:</span> A custom hook, whose name begins with the word "use," is a unique JavaScript function that can be used to call other hooks. Here are some key distinctions between React JS components and custom React hooks: A unique signature is not necessary for a bespoke hook.</h3> <br /> <br />
+                <h3 className='text-xl'><span className='font-semibold'>Answer:</span> You may verify the props supplied to a component using the PropTypes library that React offers. PropTypes makes it easier to verify that the props are the right type and offers better error messages when they aren't.</h3> <br /> <br />
 
-                <h1 className='font-sans text-2xl font-semibold'>3. what is the difference between node js and express js?</h1><br />
-                <h3 className='text-xl'><span className='font-semibold'>Answer:</span> The built-in React hook useRef(initialValue) receives one argument as the initial value and returns a reference (also known as a ref). An object with the unique property current is referred to as a reference.</h3> <br /> <br />
+                <h1 className='font-sans text-2xl font-semibold'>3. What is the difference between node js and express js?</h1><br />
+                <h3 className='text-xl'><span className='font-semibold'>Answer:</span> Node.js is a JavaScript runtime built on the Chrome V8 JavaScript engine. It provides an environment for executing JavaScript code outside of a web browser, allowing developers to build server-side applications using JavaScript. <br /> <br />
+
+                Express.js, on the other hand, is a framework for building web applications on top of Node.js. It provides a set of features for building web applications such as routing, middleware, templates, and more.</h3> <br /> <br />
 
                 <h1 className='font-sans text-2xl font-semibold'>4. What is a custom hook, and why will you create a custom hook?</h1><br />
-                <h3 className='text-xl'><span className='font-semibold'>Answer:</span> A resource-intensive function that has been provided to useMemo() will have its value memoized. By getting rid of tedious, repetitive computations, it helps a React component perform as well as possible.</h3>
+                <h3 className='text-xl'><span className='font-semibold'>Answer:</span> In a React application, a custom hook is a reusable function that can be shared by several components and contains stateful functionality. Custom hooks can call other hooks, including other custom hooks, and they include the prefix "use" in their names. <br /> <br />
+
+                Custom hooks are made by developers to increase code reuse and to contain intricate or repeated logic in a single function. By doing this, code may be reused across several components without having to write duplicate code, making it more modular and simpler to maintain.</h3>
 
             </div>
         </div>

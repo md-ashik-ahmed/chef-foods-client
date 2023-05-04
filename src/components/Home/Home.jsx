@@ -3,7 +3,7 @@ import Card from '../Card/Card';
 import { AuthContext } from '../Provider/AuthProvider';
 import Banner from '../Banner/Banner';
 import Popular from '../ExtraSection/Popular';
-import Message from '../ExtraSection/Message';
+
 
 
 const Home = () => {

@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
+
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
 
 
@@ -15,13 +17,27 @@ const Login = () => {
 
   const auth = getAuth(app)
   console.log(app)
-  const provider = new GoogleAuthProvider()
+  const googleProvider = new GoogleAuthProvider()
+  const githubProvider = new GithubAuthProvider()
 
   const handleGoogleSignIn = () =>{
-    signInWithPopup(auth, provider )
+    signInWithPopup(auth, googleProvider )
     .then(result =>{
       const user = result.user;
       console.log(user)
+      navigate(from, {replace : true});
+    })
+    .catch(error =>{
+      console.log('error', error.message)
+    })
+  }
+
+  const handleGithubSignIn = () =>{
+    signInWithPopup(auth, githubProvider )
+    .then(result =>{
+      const user = result.user;
+      console.log(user)
+      navigate(from, {replace : true});
     })
     .catch(error =>{
       console.log('error', error.message)
@@ -55,8 +71,6 @@ const Login = () => {
     }
 
    
-    
-
     return (
     <>
     <div className="min-h-screen bg-base-200">
@@ -89,11 +103,10 @@ const Login = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
-        <Link to='/register'> <p className='text-blue-600'>Register</p> </Link>
-        <div className='item-center'>
-        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">login with Google</button> <br /> <br />
-        <button className="btn btn-outline btn-success">
-          login with github</button>
+      <div className='flex'> <p>Don't have an account?</p> <Link to='/register'> <p className='text-blue-600'>Please Register</p> </Link></div>
+        <div className='justify-around flex mt-4 gap-10'>
+        <button onClick={handleGoogleSignIn} className="btn btn-outline "><FaGoogle/>  Google</button> <br /> <br />
+        <button onClick={handleGithubSignIn} className="btn btn-outline "><FaGithub/>  github</button>
         </div>
       </form>
     </div>
