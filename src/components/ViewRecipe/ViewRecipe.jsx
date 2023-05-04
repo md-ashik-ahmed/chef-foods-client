@@ -43,7 +43,6 @@ const ViewRecipe = () => {
        
       <div className='grid lg:grid-cols-3 gap-4'> <div className="card-body card bg-base-100 shadow-xl transition duration-200 transform hover:-translate-y-2">
           <div><h2 className="card-title text-2xl">{chef.recipes[0].recipe_name}</h2>
-          <p><FaRegHeart/></p>
           </div>
           <hr />
           <h2 className='text-xl'><span className='font-semibold'>Ingredients
