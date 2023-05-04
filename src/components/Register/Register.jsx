@@ -20,28 +20,26 @@ const Register = () => {
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
+    const image = form.image.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
-    console.log(name, email, password, confirm);
+    console.log(name, email, image, password, confirm);
 
     if(password !== confirm){
-      setError('Your password did not match')
+      setError('Your Password did not match')
       return
     }
     else if(password.length < 6 ){
-      setError('password must be 6 character')
+      setError('Password must be 6 character')
       return
     }
     else if(!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)){
-      setError("Lorem ipsum dolor")
-      
-     
-
+      setError("At least Two Uper Case!")
       return
     }
 
     
-    createUser(email, password)
+    createUser(email, image, password)
     .then(result =>{
       const loggedUser = result.user;
       console.log(loggedUser)
@@ -58,9 +56,9 @@ const handleAccepted = event =>{
   setAccepted(event.target.checked)
 }
 
-const handleSucess = () =>{
-  toast('Account Created Succesfully')
-}
+// const handleSucess = () =>{
+//   toast('Account Created Succesfully')
+// }
 
 
     return (
@@ -85,6 +83,12 @@ const handleSucess = () =>{
         </div>
         <div className="form-control">
           <label className="label">
+            <span className="label-text">Photo URL</span>
+          </label>
+          <input type="Photo" name='image' placeholder="Photo URl" className="input input-bordered" required />
+        </div>
+        <div className="form-control">
+          <label className="label">
             <span className="label-text">Password</span>
           </label>
           <input type="password" name="password" placeholder="password" className="input input-bordered" required/>
@@ -103,13 +107,11 @@ const handleSucess = () =>{
      </label>
        </div>
         <div className="form-control mt-6">
-          <button onClick={handleSucess} disabled={!accepted} className="btn btn-primary">Create New account</button>
-          <ToastContainer/>
+          <button disabled={!accepted} className="btn btn-primary">Create New account</button>
         </div>
         <div className='inline-flex'><p>Already have an account?</p>
         <Link to='/login'> <p className='text-blue-600'>Login here</p> </Link></div>
         <p className='text-red-600'>{error}</p>
-        
       </form>
     </div>
   </div>
