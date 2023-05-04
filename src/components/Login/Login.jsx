@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
@@ -103,7 +102,9 @@ const Login = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
-      <div className='flex'> <p>Don't have an account?</p> <Link to='/register'> <p className='text-blue-600'>Please Register</p> </Link></div>
+      <div className='flex'> <p>Don't have an account?</p> 
+      <Link to='/register'> <p className='text-blue-600'>Please Register</p> 
+      </Link></div>
         <div className='justify-around flex mt-4 gap-10'>
         <button onClick={handleGoogleSignIn} className="btn btn-outline "><FaGoogle/>  Google</button> <br /> <br />
         <button onClick={handleGithubSignIn} className="btn btn-outline "><FaGithub/>  github</button>

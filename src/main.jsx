@@ -6,7 +6,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Main from './components/Main/Main.jsx';
-
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register.jsx';
@@ -42,7 +41,7 @@ const router = createBrowserRouter([
       {
         path : "/foods/:id",
         element : <PrivateRoute><ViewRecipe></ViewRecipe></PrivateRoute>,
-        loader : ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader : ({params}) => fetch(`https://chef-foods-server.vercel.app/foods/${params.id}`)
       }
       
     ]

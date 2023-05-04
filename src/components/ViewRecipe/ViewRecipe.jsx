@@ -1,11 +1,7 @@
 import React from 'react';
-import {  FaRegStar,  FaStar } from 'react-icons/fa';
-
-import { FaRegHeart } from 'react-icons/fa';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData,} from 'react-router-dom';
 
 const ViewRecipe = () => {
-
 
     // const {id} = useParams();
 
@@ -37,12 +33,12 @@ const ViewRecipe = () => {
                 </div>
             </div> 
          </div>
-        <div className=" my-container my-16">
 
-           
-       
+
+        <div className=" my-container my-16">
       <div className='grid lg:grid-cols-3 gap-4'> <div className="card-body card bg-base-100 shadow-xl transition duration-200 transform hover:-translate-y-2">
-          <div><h2 className="card-title text-2xl">{chef.recipes[0].recipe_name}</h2>
+        <div><h2 className="card-title text-2xl">{chef.recipes[0].recipe_name}
+        </h2>
           </div>
           <hr />
           <h2 className='text-xl'><span className='font-semibold'>Ingredients
@@ -64,16 +60,6 @@ const ViewRecipe = () => {
           <h2 className='text-xl'><span className='font-semibold'>Ingredients</span>  : {chef.recipes[2].ingredients}</h2>
           <h2 className='text-xl'><span className='font-semibold'>Cooking Method</span>  : {chef.recipes[2].cooking_method}</h2>
           <h2 className='text-xl'><span className='font-semibold'>Rating </span>: {chef.recipes[2].rating}</h2>
-          {/* <div className='flex-grow-1'>
-                    <Rating
-                        placeholderRating={chef.recipes[2].rating}
-                        readonly
-                        emptySymbol={<FaRegStar></FaRegStar>}
-                        placeholderSymbol={<FaStar className='text-warning'></FaStar>}
-                        fullSymbol={<FaStar></FaStar>}
-                    ></Rating>
-                    <span> </span>
-                </div> */}
       </div>
       </div>
  

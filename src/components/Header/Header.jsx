@@ -7,16 +7,13 @@ import {
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Header = () => {
-
   const {user, logOut} = useContext(AuthContext)
-
   const handlelogOut = () =>{
     logOut()
     .then(() =>{
 
     })
     .catch(error =>console.error(error))
-
   }
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -48,9 +45,7 @@ const Header = () => {
               >
                 Blogs
               </NavLink>
-            </li>
-           
-            
+            </li>  
           </ul>
         
           {
