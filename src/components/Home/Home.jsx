@@ -14,9 +14,7 @@ const Home = () => {
     fetch('https://chef-foods-server.vercel.app/foods/')
     .then(res => res.json())
     .then(data => setFoods(data))
-    .catch(error => console.error(error))
-
-  },[])
+    .catch(error => console.error(error))},[])
 
     return (
 

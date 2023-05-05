@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
@@ -9,13 +11,9 @@ import app from '../../firebase/firebase.config';
 const Login = () => {
 
   const [error, setError] = useState('')
-
   const navigate = useNavigate();
   const location = useLocation();
   console.log(location);
-
- 
-
   const from = location.state?.from?.pathname || '/';
 
   const auth = getAuth(app)
@@ -58,7 +56,6 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
-        
         signIn(email, password)
         .then(result =>{
           const loggedUser = result.user;
@@ -72,7 +69,7 @@ const Login = () => {
           console.log(error.code);
 
         if(error.code = "auth/wrong-password"){
-          setError('Wrong Password !')
+          setError && toast.error('Wrong Password !')
         }
         else if(error.code = "auth/user-not-found"){
           setError('Wrong Email !')
@@ -129,6 +126,7 @@ const Login = () => {
       </form>
     </div>
   </div>
+  <ToastContainer/>
  </div>
  </>
     );

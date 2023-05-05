@@ -41,16 +41,13 @@ const Header = () => {
             <li>
               <NavLink
                 to='/blogs'
-                className={({ isActive }) => (isActive ? 'active' : 'default')}
-              >
-                Blogs
-              </NavLink>
+                className={({ isActive }) => (isActive ? 'active' : 'default')}>Blogs</NavLink>
             </li>  
           </ul>
         
           {
               user? <>
-              <span>{user.email}</span>
+              <span>{user.email} </span>
               <button onClick={handlelogOut}  className='btn btn-primary btn-outline'>
               Sign Out
               </button></> : <button className='btn btn-primary btn-outline'><Link to="/login">Login</Link></button>
@@ -63,8 +60,7 @@ const Header = () => {
             <button
               aria-label='Open Menu'
               title='Open Menu'
-              onClick={() => setIsMenuOpen(true)}
-            >
+              onClick={() => setIsMenuOpen(true)}>
               <Bars3BottomRightIcon className='w-5 text-gray-600' />
             </button>
             {isMenuOpen && (
@@ -84,8 +80,7 @@ const Header = () => {
                       <button
                         aria-label='Close Menu'
                         title='Close Menu'
-                        onClick={() => setIsMenuOpen(false)}
-                      >
+                        onClick={() => setIsMenuOpen(false)}>
                         <XMarkIcon className='w-5 text-gray-600' />
                       </button>
                     </div>
@@ -101,18 +96,12 @@ const Header = () => {
                       <li>
                         <Link
                           to='/blogs'
-                          className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
-                        >
-                        Blogs
-                        </Link>
+                          className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'>Blogs</Link>
                       </li>
                       <li>
                         <Link
                           to='/login'
-                          className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
-                        >
-                         Login
-                        </Link>
+                          className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'>Login</Link>
                       </li>
                     </ul>
                   </nav>

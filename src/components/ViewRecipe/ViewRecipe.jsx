@@ -49,7 +49,6 @@ const ViewRecipe = () => {
             </div> 
          </div>
 
-
         <div className=" my-container my-16">
       <div className='grid lg:grid-cols-3 gap-4'> <div className="card-body card bg-purple-100	 shadow-xl transition duration-200 transform hover:-translate-y-2">
         <div className='flex justify-between'><h2 className="card-title text-2xl">{chef.recipes[0].recipe_name}
@@ -65,29 +64,24 @@ const ViewRecipe = () => {
 
 
       <div className='card '> <div className="card-body card bg-purple-100	 shadow-xl transition duration-200 transform hover:-translate-y-2">
-         <div className='flex justify-between'>
+        <div className='flex justify-between'>
             
         <h2 className="card-title text-2xl">{chef.recipes[1].recipe_name}
         </h2> 
         <button onClick={handleFavoute2} disabled={!accepts}  className='btn btn-info'>Favorite</button></div>
-          <hr />
-
-          
+        <hr />
         <h2 className='text-xl'><span className='font-semibold'>Ingredients</span>  : {chef.recipes[1].ingredients}</h2>
         <h2 className='text-xl'><span className='font-semibold'>Cooking Method</span> : {chef.recipes[1].cooking_method}</h2>
         <h2 className='text-xl'><span className='font-semibold'>Rating </span> : {chef.recipes[1].rating}</h2>
         </div>
 
 
-
       </div>
-       <div className="card-body card shadow-xl bg-purple-100 transition duration-200 transform hover:-translate-y-2">
+       <div className="card-body card shadow-xl bg-purple-100 transition     duration-200 transform hover:-translate-y-2">
          <div className='flex justify-between'><h2 className="card-title text-2xl">{chef.recipes[2].recipe_name}
-        </h2> <button onClick={handleFavoute3} disabled={!accepted}  className='btn btn-info'>Favorite</button>
+         </h2> <button onClick={handleFavoute3} disabled={!accepted}  className='btn btn-info'>Favorite</button>
           </div>
-
           <hr />
-
           <h2 className='text-xl'><span className='font-semibold'>Ingredients</span>  : {chef.recipes[2].ingredients}</h2>
           <h2 className='text-xl'><span className='font-semibold'>Cooking Method</span>  : {chef.recipes[2].cooking_method}</h2>
           <h2 className='text-xl'><span className='font-semibold'>Rating </span>: {chef.recipes[2].rating}</h2>

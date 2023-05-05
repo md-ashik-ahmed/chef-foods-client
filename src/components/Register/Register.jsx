@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
@@ -14,7 +16,7 @@ const Register = () => {
   const handleRegister = event =>{
     event.preventDefault();
     setError('');
-    navigate('/')
+    
 
     const form = event.target;
     const name = form.name.value;
@@ -25,25 +27,25 @@ const Register = () => {
     console.log(name, email, password, confirm);
 
     if(password !== confirm){
-      setError('Your Password did not match')
+      setError && toast.error('Your Password did not match')
       return
     }
     else if(password.length < 6 ){
-      setError('Password must be 6 character')
+      setError && toast.error('Password must be 6 character')
       return
     }
-    else if(!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)){
-      setError("At least Two Uper Case!")
+    else if(!/(?=(.*[A-Z]){2,})/.test(password)){
+      setError && toast.error("At least Two Uper Case!")
       return
-    }
+    } 
 
     
     createUser(email, password)
     .then(result =>{
       const loggedUser = result.user;
       console.log(loggedUser)
+      navigate('/')
       form.reset();
-      
     })
     .catch(error =>{
       console.log(error.code);
@@ -54,11 +56,6 @@ const Register = () => {
 const handleAccepted = event =>{
   setAccepted(event.target.checked)
 }
-
-// const handleSucess = () =>{
-//   toast('Account Created Succesfully')
-// }
-
 
     return (
         <div>
@@ -115,6 +112,7 @@ const handleAccepted = event =>{
     </div>
   </div>
  </div>
+  <ToastContainer/>
         </div>
     );
 };
