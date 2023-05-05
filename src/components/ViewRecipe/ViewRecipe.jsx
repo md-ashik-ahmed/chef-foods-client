@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { FaRegHeart } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useLoaderData,} from 'react-router-dom';
 
 const ViewRecipe = () => {
-    const [acceptes, setAcceptes] = useState(true);
+    const [accept, setAccept] = useState(true);
+    const [accepts, setAccepts] = useState(true);
     const [accepted, setAccepted] = useState(true);
-    const [acceptedd, setAcceptedd] = useState(true);
     // const {id} = useParams();
 
     const chef = useLoaderData()
@@ -18,13 +19,16 @@ const ViewRecipe = () => {
     // },[])
 
    const handleFavoute1 =(event) =>{
-    setAcceptes(event.target.checked)
+    setAccept(event.target.checked)
+    toast("added Successfully !")
    }
    const handleFavoute2 =(event) =>{
-    setAccepted(event.target.checked)
+    setAccepts(event.target.checked)
+    toast("added Successfully !")
    }
    const handleFavoute3 =(event) =>{
-    setAcceptedd(event.target.checked)
+    setAccepted(event.target.checked)
+    toast("added Successfully !")
    }
 
 
@@ -49,7 +53,7 @@ const ViewRecipe = () => {
         <div className=" my-container my-16">
       <div className='grid lg:grid-cols-3 gap-4'> <div className="card-body card bg-purple-100	 shadow-xl transition duration-200 transform hover:-translate-y-2">
         <div className='flex justify-between'><h2 className="card-title text-2xl">{chef.recipes[0].recipe_name}
-        </h2> <button onClick={handleFavoute1} disabled={!acceptes}  className='btn btn-info'>Favorite</button>
+        </h2> <button onClick={handleFavoute1} disabled={!accept}  className='btn btn-info'>Favorite</button>
           </div>
           <hr />
           <h2 className='text-xl'><span className='font-semibold'>Ingredients
@@ -65,7 +69,7 @@ const ViewRecipe = () => {
             
         <h2 className="card-title text-2xl">{chef.recipes[1].recipe_name}
         </h2> 
-        <button onClick={handleFavoute2} disabled={!accepted}  className='btn btn-info'>Favorite</button></div>
+        <button onClick={handleFavoute2} disabled={!accepts}  className='btn btn-info'>Favorite</button></div>
           <hr />
 
           
@@ -79,7 +83,7 @@ const ViewRecipe = () => {
       </div>
        <div className="card-body card shadow-xl bg-purple-100 transition duration-200 transform hover:-translate-y-2">
          <div className='flex justify-between'><h2 className="card-title text-2xl">{chef.recipes[2].recipe_name}
-        </h2> <button onClick={handleFavoute3} disabled={!acceptedd}  className='btn btn-info'>Favorite</button>
+        </h2> <button onClick={handleFavoute3} disabled={!accepted}  className='btn btn-info'>Favorite</button>
           </div>
 
           <hr />
@@ -90,8 +94,8 @@ const ViewRecipe = () => {
       </div>
       </div>
  
-    </div>
-
+      </div>
+         <ToastContainer/>
         </div>  
         
     );
