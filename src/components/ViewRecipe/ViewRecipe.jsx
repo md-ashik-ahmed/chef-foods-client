@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaRegHeart } from "react-icons/fa";
 import { useLoaderData,} from 'react-router-dom';
 
 const ViewRecipe = () => {
-
+    const [acceptes, setAcceptes] = useState(true);
+    const [accepted, setAccepted] = useState(true);
+    const [acceptedd, setAcceptedd] = useState(true);
     // const {id} = useParams();
 
     const chef = useLoaderData()
@@ -14,15 +17,23 @@ const ViewRecipe = () => {
 
     // },[])
 
-   
+   const handleFavoute1 =(event) =>{
+    setAcceptes(event.target.checked)
+   }
+   const handleFavoute2 =(event) =>{
+    setAccepted(event.target.checked)
+   }
+   const handleFavoute3 =(event) =>{
+    setAcceptedd(event.target.checked)
+   }
 
 
     return (
-        <div className='bg-sky-100'>
-           <div className='border my-container gap-3 bg-sky-200 px-5 py-6 justify-between rounded-md items-center'>
+        <div className='bg-sky-50'>
+           <div className='border my-container gap-3 bg-sky-100 px-5 py-6 justify-between rounded-md items-center'>
             <div className='lg:inline-flex items-center gap-10'>
                 <div className='w-1/2 transition duration-200 transform hover:-translate-y-2'>
-                    <img className='border bg-slate-50' src={chef.picture} alt="image" />
+                   <div className='flex'> <img className='border bg-slate-50' src={chef.picture} alt="image" /></div>
                 </div>
                 <div className='w-1/2 transition duration-200 transform hover:-translate-y-2'>
                     <h1 className='text-3xl font-semibold py-2'>{chef.name}</h1>
@@ -36,9 +47,9 @@ const ViewRecipe = () => {
 
 
         <div className=" my-container my-16">
-      <div className='grid lg:grid-cols-3 gap-4'> <div className="card-body card bg-base-100 shadow-xl transition duration-200 transform hover:-translate-y-2">
-        <div><h2 className="card-title text-2xl">{chef.recipes[0].recipe_name}
-        </h2>
+      <div className='grid lg:grid-cols-3 gap-4'> <div className="card-body card bg-purple-100	 shadow-xl transition duration-200 transform hover:-translate-y-2">
+        <div className='flex justify-between'><h2 className="card-title text-2xl">{chef.recipes[0].recipe_name}
+        </h2> <button onClick={handleFavoute1} disabled={!acceptes}  className='btn btn-info'>Favorite</button>
           </div>
           <hr />
           <h2 className='text-xl'><span className='font-semibold'>Ingredients
@@ -47,16 +58,32 @@ const ViewRecipe = () => {
           <h2 className='text-xl'><span className='font-semibold'>Rating 
           </span>: {chef.recipes[0].rating}</h2>
       </div>
-      <div className='card '> <div className="card-body card bg-base-100 shadow-xl transition duration-200 transform hover:-translate-y-2">
-          <h2 className="card-title text-2xl">{chef.recipes[1].recipe_name}</h2>
+
+
+      <div className='card '> <div className="card-body card bg-purple-100	 shadow-xl transition duration-200 transform hover:-translate-y-2">
+         <div className='flex justify-between'>
+            
+        <h2 className="card-title text-2xl">{chef.recipes[1].recipe_name}
+        </h2> 
+        <button onClick={handleFavoute2} disabled={!accepted}  className='btn btn-info'>Favorite</button></div>
           <hr />
-          <h2 className='text-xl'><span className='font-semibold'>Ingredients</span>  : {chef.recipes[1].ingredients}</h2>
-          <h2 className='text-xl'><span className='font-semibold'>Cooking Method</span> : {chef.recipes[1].cooking_method}</h2>
-          <h2 className='text-xl'><span className='font-semibold'>Rating </span> : {chef.recipes[1].rating}</h2>
-      </div></div>
-       <div className="card-body card shadow-xl bg-base-100 transition duration-200 transform hover:-translate-y-2">
-          <h2 className="card-title text-2xl">{chef.recipes[2].recipe_name}</h2>
+
+          
+        <h2 className='text-xl'><span className='font-semibold'>Ingredients</span>  : {chef.recipes[1].ingredients}</h2>
+        <h2 className='text-xl'><span className='font-semibold'>Cooking Method</span> : {chef.recipes[1].cooking_method}</h2>
+        <h2 className='text-xl'><span className='font-semibold'>Rating </span> : {chef.recipes[1].rating}</h2>
+        </div>
+
+
+
+      </div>
+       <div className="card-body card shadow-xl bg-purple-100 transition duration-200 transform hover:-translate-y-2">
+         <div className='flex justify-between'><h2 className="card-title text-2xl">{chef.recipes[2].recipe_name}
+        </h2> <button onClick={handleFavoute3} disabled={!acceptedd}  className='btn btn-info'>Favorite</button>
+          </div>
+
           <hr />
+
           <h2 className='text-xl'><span className='font-semibold'>Ingredients</span>  : {chef.recipes[2].ingredients}</h2>
           <h2 className='text-xl'><span className='font-semibold'>Cooking Method</span>  : {chef.recipes[2].cooking_method}</h2>
           <h2 className='text-xl'><span className='font-semibold'>Rating </span>: {chef.recipes[2].rating}</h2>

@@ -2,26 +2,27 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
-const Register = () => {
 
+const Register = () => {
+  
   const [error, setError] = useState('');
   const [accepted, setAccepted] = useState(false);
  
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {user, createUser} = useContext(AuthContext)
    
   const handleRegister = event =>{
     event.preventDefault();
     setError('');
+    navigate('/')
 
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
-    const image = form.image.value;
+    // const image = form.image.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
-    console.log(name, email, image, password, confirm);
+    console.log(name, email, password, confirm);
 
     if(password !== confirm){
       setError('Your Password did not match')
@@ -37,17 +38,17 @@ const Register = () => {
     }
 
     
-    createUser(email, image, password)
+    createUser(email, password)
     .then(result =>{
       const loggedUser = result.user;
       console.log(loggedUser)
       form.reset();
-      navigate('/')
+      
     })
     .catch(error =>{
-      console.log(error)
+      console.log(error.code);
     })
-
+    
 }
 
 const handleAccepted = event =>{
@@ -79,12 +80,12 @@ const handleAccepted = event =>{
           </label>
           <input type="email" name='email' placeholder="Your Email" className="input input-bordered" required />
         </div>
-        <div className="form-control">
+        {/* <div className="form-control">
           <label className="label">
             <span className="label-text">Photo URL</span>
           </label>
           <input type="Photo" name='image' placeholder="Photo URl" className="input input-bordered" required />
-        </div>
+        </div> */}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>

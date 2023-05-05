@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
@@ -8,9 +8,13 @@ import app from '../../firebase/firebase.config';
 
 const Login = () => {
 
+  const [error, setError] = useState('')
+
   const navigate = useNavigate();
   const location = useLocation();
   console.log(location);
+
+ 
 
   const from = location.state?.from?.pathname || '/';
 
@@ -46,7 +50,6 @@ const Login = () => {
 
   const {signIn} = useContext(AuthContext)
 
-
     const handleLogin = event =>{
         event.preventDefault();
 
@@ -55,19 +58,28 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
-
+        
         signIn(email, password)
         .then(result =>{
           const loggedUser = result.user;
           console.log(loggedUser)
+          setError('')
           form.reset()
+          
           navigate(from, {replace : true});
         })
         .catch(error =>{
-          console.log(error)
-        })
+          console.log(error.code);
 
-    }
+        if(error.code = "auth/wrong-password"){
+          setError('Wrong Password !')
+        }
+        else if(error.code = "auth/user-not-found"){
+          setError('Wrong Email !')
+        }
+        });
+        
+    };
 
    
     return (
@@ -99,6 +111,7 @@ const Login = () => {
       <input type="checkbox" className="checkbox" />
      </label>
        </div>
+       <p className='text-red-600'>{error}</p>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
@@ -106,8 +119,12 @@ const Login = () => {
       <Link to='/register'> <p className='text-blue-600'>Please Register</p> 
       </Link></div>
         <div className='justify-around flex mt-4 gap-10'>
-        <button onClick={handleGoogleSignIn} className="btn btn-outline "><FaGoogle/>  Google</button> <br /> <br />
-        <button onClick={handleGithubSignIn} className="btn btn-outline "><FaGithub/>  github</button>
+        <button onClick={handleGoogleSignIn} className="btn btn-outline ">
+          <div className='flex'><p><FaGoogle/></p> <p className='pl-2'>Google
+          </p></div></button> <br /> <br />
+        <button onClick={handleGithubSignIn} className="btn btn-outline ">
+          <div className='flex'><p><FaGithub/></p> <p className='pl-2'>Github
+          </p></div></button>
         </div>
       </form>
     </div>

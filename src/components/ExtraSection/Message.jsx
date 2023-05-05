@@ -8,7 +8,7 @@ const Message = () => {
                 <p className='text-xl'>A barbecue grill is a device that cooks food by applying heat from below. There are several varieties of grills, with most falling into one There are several varieties of grills There are several varieties of grills of two categories charcoal. There is debate over which method yields superior results A barbecue grill is a device that cooks food by applying heat from below. e that cooks food by applying heat from below.</p>
 
                 <div className='mt-16'>
-                <button className="btn ml-16 btn-outline btn-primary px-4 transition duration-200 transform hover:-translate-y-2 ">Find Our Story</button></div>
+                <button className="btn ml-16 btn-outline btn-primary px-4 transition duration-200 transform hover:-translate-y-1n ">Find Our Story</button></div>
                 </div> 
                 
                 <div className='w-1/2 '> <img className='h-full w-full' 
